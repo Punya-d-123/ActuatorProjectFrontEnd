@@ -6,7 +6,6 @@ import S54sensor from "../pages/S54sensor.jsx";
 import S5Xmonitor from "../pages/S5Xmonitor.jsx";
 import ActuatorSizing from "../pages/ActuatorSizing.jsx";
 import Configuration from "../pages/ActuatorConfiguration.jsx";
-import Valuepage from "../pages/valuepage.jsx";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("Home");
@@ -37,8 +36,6 @@ const Dashboard = () => {
         return <S54sensor />;
       case "SSX Monitor":
         return <S5Xmonitor />;
-      case "Value page":
-        return <Valuepage />;
       default:
         return <Home />;
     }
