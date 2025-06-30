@@ -538,8 +538,8 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
               <div className="flex flex-col items-center mt-6 w-full">
                 <div className="flex flex-col gap-5 w-full">
                   {/* Valve Type */}
-                  <div className="flex items-center">
-                    <span className="mr-2 font-bold w-[140px] ">
+                  <div className="flex items-center mb-4">
+                    <span className="mr-2 font-bold w-[140px]">
                       Valve Type:
                     </span>
                     <select
@@ -613,72 +613,82 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
           </div>
         </div>
         {/* Torque ui section*/}
+        {/* Value Torque Section */}
+        <div
+          className={`${!valveType ? "opacity-50 pointer-events-none" : ""}`}
+        >
+          <div className="flex items-center mb-3">
+            <label className="w-28 text-[#08549c] font-semibold">
+              Value Torques
+            </label>
+            <select
+              className="w-36 h-7 ml-2 rounded"
+              style={{ border: "none", background: "#f3f4f6" }}
+              value={valveCountOption}
+              onChange={handleValveCountChange}
+              disabled={!valveType}
+            >
+              <option value="6 Values">6 Values</option>
+              <option value="3 Values">3 Values</option>
+            </select>
+          </div>
 
-        <div className="bg-white p-4 shadow-lg rounded-lg w-[1012px]">
-          <div className="grid grid-cols-3 gap-10 items-start ">
-            <div>
-              <div className="flex items-center mb-3">
-                <label className="w-28 text-[#08549c] font-semibold">
-                  Value Torques
-                </label>
-                <select
-                  className="w-36 h-7 ml-2 rounded"
-                  style={{ border: "none", background: "#f3f4f6" }}
-                  value={valveCountOption}
-                  onChange={handleValveCountChange}
-                >
-                  <option value="6 Values">6 Values</option>
-                  <option value="3 Values">3 Values</option>
-                </select>
-              </div>
-              {torqueLabels.map((label, i) => (
+          {torqueLabels.map((label, i) => (
+            <InputField
+              key={i}
+              label={label}
+              unit="Nm"
+              value={torques[i] !== undefined ? torques[i] : ""}
+              onChange={(e) => handleTorqueChange(i, e)}
+              type="text"
+              disabled={!valveType}
+            />
+          ))}
+
+          <div className="mt-2 text-sm text-gray-500">(Seating)</div>
+
+          <div className="ml-[30px]">
+            <div className="text-[#08549c] font-semibold mb-5">
+              Actuator Torques
+            </div>
+            {actuatorTorquesLabels
+              .slice(0, torqueLabels.length)
+              .map((label, i) => (
                 <InputField
                   key={i}
                   label={label}
                   unit="Nm"
-                  value={torques[i] !== undefined ? torques[i] : ""}
-                  onChange={(e) => handleTorqueChange(i, e)}
                   type="text"
+                  value={actuatorValues[i] || ""}
+                  readOnly
                 />
               ))}
-              <div className="mt-2 text-sm text-gray-500">(Seating)</div>
-            </div>
+          </div>
 
-            <div className="ml-[30px]">
-              <div className="text-[#08549c] font-semibold mb-5 ">
-                Actuator Torques
-              </div>
-              {actuatorTorquesLabels
-                .slice(0, torqueLabels.length)
-                .map((label, i) => (
-                  <InputField
-                    key={i}
-                    label={label}
-                    unit="Nm"
-                    type="text"
-                    value={actuatorValues[i] || ""}
-                    readOnly
-                  />
-                ))}
+          <div>
+            <div className="text-[#08549c] font-semibold mb-5 ml-[50px]">
+              Actual S.F
             </div>
-            <div>
-              <div className="text-[#08549c] font-semibold mb-5 ml-[50px]">
-                Actual S.F
+            {[...Array(torqueLabels.length)].map((_, i) => (
+              <div key={i} className="mb-2" style={{ marginLeft: 50 }}>
+                <input
+                  type="text"
+                  className="w-24 h-7 bg-gray-200 rounded border border-gray-300"
+                  value={actualSF[i] !== undefined ? actualSF[i] : ""}
+                  onChange={(e) => handleActualSFChange(i, e)}
+                  disabled={!valveType}
+                />
               </div>
-              {[...Array(torqueLabels.length)].map((_, i) => (
-                <div key={i} className="mb-2 ml-[-30px]">
-                  <input
-                    type="text"
-                    className="w-24 h-7 bg-gray-200 rounded border border-gray-300 "
-                    style={{ marginLeft: 80 }}
-                    value={actualSF[i] !== undefined ? actualSF[i] : ""}
-                    onChange={(e) => handleActualSFChange(i, e)}
-                  />
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
+
+        {/* Optional message if valveType is not selected */}
+        {!valveType && (
+          <div className="text-red-500 text-sm mt-2 ml-1">
+            Please select a Valve Type to proceed.
+          </div>
+        )}
       </div>
       {/* Bottom row: Actuator Image & Actuator Selector*/}
       <div className="flex gap-3">
@@ -1070,7 +1080,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                                 "Fail Open (Fail Counter Clockwise - FCCW)",
                               value:
                                 "Fail Open (Fail Counter Clockwise - FCCW)",
-                              disabled: true,
                             },
                           ]
                         : [
