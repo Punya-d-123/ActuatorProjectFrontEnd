@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import.meta.env.VITE_FETCH_SERIES
 import.meta.env.VITE_CREATE_SERIES
 
-function Valuepage() {
+function Valuepag() {
   const [input, setInput] = useState("");
   const [seriesList, setSeriesList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -115,4 +115,4 @@ function Valuepage() {
   );
 }
 
-export default Valuepage;
+export default Valuepag;
