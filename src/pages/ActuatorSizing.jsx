@@ -538,8 +538,8 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
               <div className="flex flex-col items-center mt-6 w-full">
                 <div className="flex flex-col gap-5 w-full">
                   {/* Valve Type */}
-                  <div className="flex items-center mb-4">
-                    <span className="mr-2 font-bold w-[140px]">
+                  <div className="flex items-center">
+                    <span className="mr-2 font-bold w-[140px] ">
                       Valve Type:
                     </span>
                     <select
@@ -969,7 +969,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                         type="radio"
                         name="yokeType"
                         value="Preferred"
-                        disabled
                         checked={formData.actuatorYokeType === "Preferred"}
                         onChange={(e) =>
                           setFormData((prev) => ({
@@ -1002,7 +1001,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                         type="radio"
                         name="yokeType"
                         value="Canted"
-                        disabled
                         checked={formData.actuatorYokeType === "Canted"}
                         onChange={(e) =>
                           setFormData((prev) => ({
@@ -1070,6 +1068,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                                 "Fail Open (Fail Counter Clockwise - FCCW)",
                               value:
                                 "Fail Open (Fail Counter Clockwise - FCCW)",
+                              disabled: true,
                             },
                           ]
                         : [
