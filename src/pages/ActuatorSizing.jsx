@@ -743,7 +743,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                   </div>
                   {/* Actuator Type  */}
                   <div>
-                    {/* Fail Safe Condition for Spring Return */}
+                    /* Fail Safe Condition for Spring Return */
                     {formData.actuatorType === "Spring Return" && (
                       <>
                         <label className="font-bold block mb-2 pt-[23px] text-[#08549c]">
