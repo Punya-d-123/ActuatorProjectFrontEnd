@@ -518,32 +518,31 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
       {/* Top row: Valve Info + Actuator Selector */}
       <div className="flex gap-3 mb-3">
         {/* Valve Information */}
-        <div className="bg-white p-4 rounded-lg shadow-lg w-[53vh] flex flex-col items-center">
-          <div className="flex flex-col items-center w-full ">
-            <div className="text-black w-[370px]">
+        <div className="bg-white p-4 rounded-lg shadow-lg w-[53vh] min-w-[360px] flex flex-col items-center">
+          <div className="flex flex-col items-center w-full">
+            <div className="text-black w-full max-w-[340px]">
               <div className="flex justify-between items-center mb-2">
-                <p className="text-sm font-bold text-[#08549c] mt-[10px]">
-                  <b>Actuator Sizing Units</b>
+                <p className="text-sm font-bold text-[#08549c] mt-2">
+                  Actuator Sizing Units
                 </p>
               </div>
-              <div className="flex items-center justify-center mt-[-30px] mr-[-323px] ">
+
+              <div className="flex justify-end mt-[-20px]">
                 <button
-                  className="bg-[#08549c] hover:bg-blue-800 text-white px-4 py-1 rounded text-sm mr-[280px]"
+                  className="bg-[#08549c] hover:bg-blue-800 text-white px-4 py-1 rounded text-sm"
                   onClick={handleClearAll}
                 >
                   Clear All
                 </button>
               </div>
-              {/* Vertically aligned form fields below heading */}
+
               <div className="flex flex-col items-center mt-6 w-full">
                 <div className="flex flex-col gap-5 w-full">
                   {/* Valve Type */}
-                  <div className="flex items-center">
-                    <span className="mr-2 font-bold w-[140px] ">
-                      Valve Type:
-                    </span>
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold">Valve Type:</span>
                     <select
-                      className="bg-gray-200 rounded px-2 py-1 w-32 ml-4 font-semibold"
+                      className="bg-gray-200 rounded px-2 py-1 font-semibold"
                       value={valveType}
                       onChange={handleValveTypeChange}
                     >
@@ -555,50 +554,52 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                       ))}
                     </select>
                   </div>
+
                   {/* Required Safety Factor */}
                   <div className="flex flex-col">
-                    <div className="flex items-center">
-                      <span className="mr-2 font-bold w-[140px] ">
-                        Required Safety Factor:
-                      </span>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold">Required Safety Factor:</span>
                       <input
                         type="text"
-                        className="border rounded px-1 py-1 w-10 bg-yellow-100 text-center ml-4 font-semibold"
+                        className="border rounded px-2 py-1 w-14 bg-yellow-100 text-center font-semibold"
                         value={safetyFactor}
                         readOnly
                         onChange={handleSafetyFactorChange}
                       />
                     </div>
-                    <span className="text-xs text-gray-500 ml-[164px] mt-[10px]">
+                    <span className="text-xs text-gray-500 mt-1 text-right">
                       (e.g. 1.25)
                     </span>
                   </div>
+
                   {/* Stem Diameter */}
-                  <div className="flex items-center">
-                    <span className="text-[#08549c] font-semibold  w-[140px]  mr-2">
+                  <div className="flex flex-col">
+                    <span className="text-[#08549c] font-semibold mb-2">
                       Stem Diameter:
                     </span>
-                    <div className="flex items-center space-x-3 ml-4">
-                      <label className="flex items-center space-x-1">
-                        <input
-                          type="radio"
-                          name="stemUnit"
-                          value="Inch"
-                          checked={stemUnit === "Inch"}
-                          onChange={handleStemUnitChange}
-                        />
-                        <span className="font-semibold">Inch</span>
-                      </label>
-                      <label className="flex items-center space-x-1">
-                        <input
-                          type="radio"
-                          name="stemUnit"
-                          value="Metric"
-                          checked={stemUnit === "Metric"}
-                          onChange={handleStemUnitChange}
-                        />
-                        <span className="font-semibold">Metric</span>
-                      </label>
+                    <div className="flex items-center justify-between">
+                      <div className="flex space-x-3">
+                        <label className="flex items-center space-x-1">
+                          <input
+                            type="radio"
+                            name="stemUnit"
+                            value="Inch"
+                            checked={stemUnit === "Inch"}
+                            onChange={handleStemUnitChange}
+                          />
+                          <span className="font-semibold">Inch</span>
+                        </label>
+                        <label className="flex items-center space-x-1">
+                          <input
+                            type="radio"
+                            name="stemUnit"
+                            value="Metric"
+                            checked={stemUnit === "Metric"}
+                            onChange={handleStemUnitChange}
+                          />
+                          <span className="font-semibold">Metric</span>
+                        </label>
+                      </div>
                       <input
                         type="text"
                         className="border rounded px-2 py-1 w-16"
@@ -612,6 +613,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
             </div>
           </div>
         </div>
+
         {/* Torque ui section*/}
 
         <div className="bg-white p-4 shadow-lg rounded-lg w-[1012px]">
