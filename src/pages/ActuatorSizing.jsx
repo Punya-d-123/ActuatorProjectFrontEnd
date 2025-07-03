@@ -385,31 +385,27 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     setActualSF(newSF);
   };
   const handleClearAll = () => {
-  setValveType("");
-  setTorques(
-    valveCountOption === "6 Values" ? ["", "", "", "", "", ""] : ["", "", ""]
-  );
-  formData.actuatorType("Spring Return");
-  formData.failSafeValue("Fail Close (Fail Clockwise - FCW)");
-  setPedOption("Non PED");
-  
-  if (actuatorSeries.length > 0) {
-    const s98Series = actuatorSeries.find((s) => s.includes("S98"));
-    if (s98Series) setSelectedSeries(s98Series);
-    else setSelectedSeries(actuatorSeries[0]);
-  } else {
-    setSelectedSeries("");
-  }
-
-  setStemUnit("Metric");
-  setStemDiameter("");
-  setSafetyFactor("1.25");
-  setValveCountOption("6 Values");
-  setActualSF(["", "", "", "", "", ""]);
-  setActuatorValues([]); // ✅ Clears Actuator Torques
-  setShowButtons(false);
-};
-
+    setValveType("");
+    setTorques(
+      valveCountOption === "6 Values" ? ["", "", "", "", "", ""] : ["", "", ""]
+    );
+    formData.actuatorType("Spring Return");
+    formData.failSafeValue("Fail Close (Fail Clockwise - FCW)");
+    setPedOption("Non PED");
+    if (actuatorSeries.length > 0) {
+      const s98Series = actuatorSeries.find((s) => s.includes("S98"));
+      if (s98Series) setSelectedSeries(s98Series);
+      else setSelectedSeries(actuatorSeries[0]);
+    } else {
+      setSelectedSeries("");
+    }
+    setStemUnit("Metric");
+    setStemDiameter("");
+    setSafetyFactor("1.25");
+    setValveCountOption("6 Values");
+    setActualSF(["", "", "", "", "", ""]);
+    setShowButtons(false);
+  };
 
   const rackPinionSeries = [
     "S92/93 - Rack & Pinion Actuator",
@@ -501,7 +497,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     formData.springEnd,
   ];
 
-
   // Now it's safe to use inside useEffect
   useEffect(() => {
     const newActualSF = actuatorValues.map((actuatorVal, i) => {
@@ -517,7 +512,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
 
     setActualSF(newActualSF);
   }, [torques, actuatorValues]); // ✅ now this works safely
-  
 
   return (
     <div className="p-4 bg-gray-100 text-[12px] font-sans min-h-screen h-screen overflow-hidden">
@@ -651,7 +645,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
             </div>
 
             <div className="ml-[30px]">
-              <div className="text-[#08549c] font-semibold mb-5">
+              <div className="text-[#08549c] font-semibold mb-5 ">
                 Actuator Torques
               </div>
               {actuatorTorquesLabels
