@@ -681,14 +681,12 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
         </div>
       </div>
       {/* Bottom row: Actuator Image & Actuator Selector*/}
-      <div className="flex gap-3">
-        <div className="bg-white shadow-lg rounded-lg w-[500px] h-[400px] flex items-center justify-center">
-          <div className="text-gray-400 text-center">
-            <div className="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
-              <span className="text-sm">Actuator Image</span>
-            </div>
-            <p className="text-sm">Image placeholder</p>
+      <div className="bg-white shadow-lg rounded-lg w-[47vh] h-[47vh] flex items-center justify-center">
+        <div className="text-gray-400 text-center">
+          <div className="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
+            <span className="text-sm">Actuator Image</span>
           </div>
+          <p className="text-sm">Image placeholder</p>
         </div>
 
         {/* Actuator selector with fixed height matching image section */}
