@@ -14,7 +14,7 @@ import { AuthContext } from "../config/AuthContext";
 import { data } from "react-router-dom";
 
 export default function Sidebar({ setActiveTab, activeTab }) {
-  const { logout, user} = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext);
   return (
     <aside className="w-[220px] bg-white border-r border-gray-200 p-4 flex flex-col min-h-screen">
       {/* Profile and Sign Out */}
@@ -46,42 +46,49 @@ export default function Sidebar({ setActiveTab, activeTab }) {
           label="Home"
           isActive={activeTab === "Home"}
           onClick={() => setActiveTab("Home")}
+          disabled={true}
         />
         <SidebarItem
           icon={<Wrench size={18} />}
           label="Actuator Sizing"
           isActive={activeTab === "Actuator Sizing"}
           onClick={() => setActiveTab("Actuator Sizing")}
+          disabled={false}
         />
         <SidebarItem
           icon={<Wrench size={18} />}
           label="S98 Part#"
           isActive={activeTab === "S98 Part#"}
           onClick={() => setActiveTab("S98 Part#")}
+          disabled={true}
         />
         <SidebarItem
           icon={<ListFilter size={18} />}
           label="Part# Decode"
           isActive={activeTab === "Part# Decode"}
           onClick={() => setActiveTab("Part# Decode")}
+          disabled={true}
         />
         <SidebarItem
           icon={<Wifi size={18} />}
           label="SS4 Sensor"
           isActive={activeTab === "SS4 Sensor"}
           onClick={() => setActiveTab("SS4 Sensor")}
+          disabled={true}
         />
         <SidebarItem
           icon={<Monitor size={18} />}
           label="SSX Monitor"
           isActive={activeTab === "SSX Monitor"}
           onClick={() => setActiveTab("SSX Monitor")}
+          disabled={true}
         />
         <SidebarItem
           icon={<Pencil size={18} />}
           label="Value page"
           isActive={activeTab === "Value page"}
           onClick={() => setActiveTab("Value page")}
+          disabled={true}
         />
       </nav>
 
