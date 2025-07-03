@@ -18,8 +18,6 @@ const Dashboard = () => {
 
   const renderView = () => {
     switch (activeTab) {
-      case "Home":
-        return <Home />;
       case "Actuator Sizing":
         // Pass setActiveTab and dashboardData as props
         return (
@@ -28,6 +26,9 @@ const Dashboard = () => {
             dashboardData={dashboardData}
           />
         );
+      case "Home":
+        return <Home />;
+      
       case "S98 Part#":
         return <Configuration />;
       case "Part# Decode":
