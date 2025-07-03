@@ -167,7 +167,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     }
 
     const endToCloseValue = parseFloat(formData.endToClose) || 0;
-    const adjustedEndToClose = formData.endCloseValue * 1.25;
+    const adjustedEndToClose = Math.ceil(formData.endCloseValue * 1.25);
 
     const requestData = {
       actuatorType: formData.actuatorType.includes("Spring Return")
