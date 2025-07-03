@@ -682,10 +682,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
       </div>
       {/* Bottom row: Actuator Image & Actuator Selector*/}
       <div className="flex gap-3">
-        <div
-          className="bg-white shadow-lg rounded-lg flex items-center justify-center h-full min-h-[400px] w-[500px]"
-          style={{ height: "400px" }}
-        >
+        <div className="bg-white shadow-lg rounded-lg flex items-center justify-center w-[500px] h-[400px]">
           <div className="text-gray-400 text-center">
             <div className="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
               <span className="text-sm">Actuator Image</span>
@@ -693,6 +690,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
             <p className="text-sm">Image placeholder</p>
           </div>
         </div>
+
         {/* Actuator selector with fixed height matching image section */}
         <div style={{ minWidth: 600, flex: 1 }}>
           {rackPinionSeries.includes(selectedSeries) ? (
