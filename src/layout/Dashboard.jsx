@@ -37,7 +37,7 @@ const Dashboard = () => {
       case "SSX Monitor":
         return <S5Xmonitor />;
       default:
-        return <Home />;
+        return <ActuatorSizing />;
     }
   };
 
