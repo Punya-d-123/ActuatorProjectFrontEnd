@@ -8,7 +8,7 @@ import ActuatorSizing from "../pages/ActuatorSizing.jsx";
 import Configuration from "../pages/ActuatorConfiguration.jsx";
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState("Home");
+  const [activeTab, setActiveTab] = useState("Actuator Sizing");
 
   // Example dashboard data, replace this with the real data you want to pass
   const dashboardData = {
@@ -18,7 +18,9 @@ const Dashboard = () => {
 
   const renderView = () => {
     switch (activeTab) {
-      case "Actuator Sizing":
+      case "Home":
+        return <Home />;
+       case "Actuator Sizing":
         // Pass setActiveTab and dashboardData as props
         return (
           <ActuatorSizing
@@ -26,9 +28,6 @@ const Dashboard = () => {
             dashboardData={dashboardData}
           />
         );
-      case "Home":
-        return <Home />;
-      
       case "S98 Part#":
         return <Configuration />;
       case "Part# Decode":
