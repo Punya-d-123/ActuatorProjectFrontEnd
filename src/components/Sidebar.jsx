@@ -94,9 +94,13 @@ export default function Sidebar({ setActiveTab, activeTab }) {
 
       {/* Datasheet Button */}
       <div className="flex justify-center mt-4">
-        <button className="bg-[#08549c] text-white w-[90px] h-[40px] rounded-[3px] cursor-pointer hover:bg-blue-900">
-          <a href="Login.jsx">Datasheet</a>
-        </button>
+       <button
+  disabled
+  className="bg-[#08549c] text-white w-[90px] h-[40px] rounded-[3px] cursor-not-allowed"
+>
+  Datasheet
+</button>
+
       </div>
     </aside>
   );
