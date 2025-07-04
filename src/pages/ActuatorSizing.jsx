@@ -159,6 +159,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     if (
       !formData.operatingPressure ||
       !formData.actuatorType ||
+      !formData.endCloseValue ||
       !formData.actuatorYokeType
     ) {
       console.error("Please fill all required fields");
