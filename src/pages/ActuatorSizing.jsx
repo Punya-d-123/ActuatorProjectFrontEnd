@@ -616,7 +616,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
 
         {/* Torque ui section*/}
 
-        <div className="bg-white p-4 shadow-lg rounded-lg w-[115vh] pl-6.5">
+        <div className="bg-white p-4 shadow-lg rounded-lg w-[115vh] pl-7">
           <div className="grid grid-cols-3 gap-10 items-start ">
             <div>
               <div className="flex items-center mb-3">
