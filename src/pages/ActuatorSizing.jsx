@@ -616,7 +616,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
 
         {/* Torque ui section*/}
 
-       <div className="bg-white p-4 shadow-lg rounded-lg w-full max-w-[1200px] pl-7">
+        <div className="bg-white p-4 shadow-lg rounded-lg w-full max-w-[1200px] pl-7">
           <div className="grid grid-cols-3 gap-10 items-start ">
             <div>
               <div className="flex items-center mb-3">
@@ -641,6 +641,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                   value={torques[i] !== undefined ? torques[i] : ""}
                   onChange={(e) => handleTorqueChange(i, e)}
                   type="text"
+                  disabled={!valveType}
                 />
               ))}
               <div className="mt-2 text-sm text-gray-500">(Seating)</div>
