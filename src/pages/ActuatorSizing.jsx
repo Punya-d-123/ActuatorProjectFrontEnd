@@ -393,7 +393,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     formData.failSafeValue("Fail Close (Fail Clockwise - FCW)");
     setPedOption("Non PED");
     if (actuatorSeries.length > 0) {
-      const s98Series = actuatorSeries.find((s) => s.includes("S98"));
+      const s98Series = actuatorSeries.find((s) => s.includes("S98"))
       if (s98Series) setSelectedSeries(s98Series);
       else setSelectedSeries(actuatorSeries[0]);
     } else {
