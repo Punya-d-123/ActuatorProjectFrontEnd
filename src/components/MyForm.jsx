@@ -11,7 +11,7 @@ function MyForm() {
     date: '',
   });
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormData({
