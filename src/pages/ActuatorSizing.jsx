@@ -518,7 +518,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
       {/* Top row: Valve Info + Actuator Selector */}
       <div className="flex gap-3 mb-3">
         {/* Valve Information */}
-        <div className="bg-white p-4 rounded-lg shadow-lg w-[53vh]  flex flex-col items-center">
+        <div className="bg-white p-4 rounded-lg shadow-lg w-[600px] xl:w-[500px] lg:w-[450px] md:w-[400px] sm:w-[90%] flex flex-col items-center">
           <div className="flex flex-col items-center w-full">
             <div className="text-black w-full max-w-[340px]">
               <div className="flex justify-between items-center mb-2">
