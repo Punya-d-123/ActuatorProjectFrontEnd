@@ -1087,7 +1087,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                 </div>
               </div>
               {/* Row 3: Select Actuator Button and Actuator Selected inline */}
-              <div className="flex flex-row gap-8 mt-2 items-center">
+              <div className="flex flex-row gap-8  items-center">
                 {/* Select Actuator Button */}
                 <div className="flex flex-row items-start gap-6 mt-[25px]">
                   {/* Left Column: Select + Actuator Configuration */}
