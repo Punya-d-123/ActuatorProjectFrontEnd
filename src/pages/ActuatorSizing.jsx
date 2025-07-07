@@ -618,7 +618,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
         {/* Torque ui section*/}
 
         <div className="bg-white p-4 shadow-lg rounded-lg w-full max-w-[1200px] pl-7">
-          <div className="grid grid-cols-3 gap-10 items-start ">
+          <div className="grid grid-cols-3 gap-8 items-start ">
             <div>
               <div className="flex items-center mb-3">
                 <label className="w-28 text-[#08549c] font-semibold">
@@ -648,7 +648,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
               <div className="mt-2 text-sm text-gray-500">(Seating)</div>
             </div>
 
-            <div className="ml-[30px]">
+            <div className="ml-[28px]">
               <div className="text-[#08549c] font-semibold mb-5 ">
                 Actuator Torques
               </div>
