@@ -1089,33 +1089,34 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
               {/* Row 3: Select Actuator Button and Actuator Selected inline */}
               <div className="flex flex-row gap-8 mt-2 items-center">
                 {/* Select Actuator Button */}
-                <div className="flex flex-col items-start h-full">
-                  <button
-                    className="bg-[#08549c] text-white px-8 py-2 rounded font-semibold hover:bg-blue-800 mt-[25px]"
-                    onClick={() => {
-                      setShowButtons(true); // ✅ First action
-                      handleSelectActuator(); // ✅ Second action
-                    }}
-                  >
-                    Select Actuator
-                  </button>
-
-                  {showButtons && (
+                <div className="flex flex-row items-start gap-6 mt-[25px]">
+                  {/* Left Column: Select + Actuator Configuration */}
+                  <div className="flex flex-col ">
                     <button
-                      className="ml-0 mt-2 bg-[#08549c] text-white px-5 py-2 rounded font-semibold hover:bg-blue-800"
-                      onClick={handleActuatorConfigurationClick} // <-- redirect here
+                      className="bg-[#08549c] text-white px-8 py-2 rounded font-semibold hover:bg-blue-800 mt-6 "
+                      onClick={() => {
+                        setShowButtons(true);
+                        handleSelectActuator();
+                      }}
                     >
-                      Actuator Configuration
+                      Select Actuator
                     </button>
-                  )}
-                </div>
-                {/* Actuator Selected */}
-                {/* Actuator Selected */}
-                <div className="fixed top-[763px] left-[930px] z-50">
-                  <label className="font-bold block mb-2 text-[#08549c]">
-                    Actuator Selected
-                  </label>
-                  <div className="space-y-2 text-black">
+
+                    {showButtons && (
+                      <button
+                        className="mt-2 bg-[#08549c] text-white px-5 py-2 rounded font-semibold hover:bg-blue-800"
+                        onClick={handleActuatorConfigurationClick}
+                      >
+                        Actuator Configuration
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Right Column: Actuator Selected */}
+                  <div className="flex flex-col ">
+                    <label className="font-bold mb-2 text-[#08549c]">
+                      Actuator Selected
+                    </label>
                     <input
                       type="text"
                       className="w-[140px] bg-[#d9d9d9] px-3 py-2 rounded"
