@@ -515,7 +515,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
   }, [torques, actuatorValues]); // ✅ now this works safely
 
   return (
-    <div className="p-4 bg-gray-100 text-[12px] font-sans min-h-screen overflow-hidden items-center justify-center">
+    <div className="p-4 bg-gray-100 text-[12px] font-sans overflow-hidden items-center justify-center">
       {/* Top row: Valve Info + Actuator Selector */}
       <div className="flex gap-3 mb-3">
         {/* Valve Information */}
