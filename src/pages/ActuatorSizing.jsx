@@ -850,7 +850,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
           ) : (
             <div
               className="bg-white p-7 shadow-lg rounded-lg space-y-6"
-              style={{ height: "400px", overflowY: "auto", maxWidth: "md" }}
+              style={{ height: "400px", maxWidth: "md" }}
             >
               <div className="grid grid-cols-3 items-start">
                 {/* Actuator Series */}
