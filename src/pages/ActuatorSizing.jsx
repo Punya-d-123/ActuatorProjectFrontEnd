@@ -688,7 +688,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
       <div className="flex gap-3">
         <div className="bg-white shadow-lg rounded-lg w-full max-w-[430px] md:max-w-[420px] sm:max-w-[95%] flex items-center justify-center">
           <div className="text-gray-400 text-center">
-            <div className="w-32 h-32 bg-gray-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
+            <div className="w-32  bg-gray-200 rounded-lg mx-auto mb-4 flex items-center justify-center">
               <span className="text-sm">Actuator Image</span>
             </div>
             <p className="text-sm">Image placeholder</p>
@@ -918,7 +918,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                           <option
                             key={idx}
                             value={pressure}
-                            disabled={pressure !== "4.0"} // 🔒 only allow "4"
                           >
                             {pressure}
                           </option>
