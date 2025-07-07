@@ -394,7 +394,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     formData.failSafeValue("Fail Close (Fail Clockwise - FCW)");
     setPedOption("Non PED");
     if (actuatorSeries.length > 0) {
-      const s98Series = actuatorSeries.find((s) => s.includes("S98"))
+      const s98Series = actuatorSeries.find((s) => s.includes("S98"));
       if (s98Series) setSelectedSeries(s98Series);
       else setSelectedSeries(actuatorSeries[0]);
     } else {
@@ -1110,7 +1110,8 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                   )}
                 </div>
                 {/* Actuator Selected */}
-                <div className="">
+                {/* Actuator Selected */}
+                <div className="fixed top-[763px] left-[930px] z-50">
                   <label className="font-bold block mb-2 text-[#08549c]">
                     Actuator Selected
                   </label>
@@ -1119,8 +1120,8 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                       type="text"
                       className="w-[140px] bg-[#d9d9d9] px-3 py-2 rounded"
                       placeholder="Actuator Model"
-                      value={formData.actuatorName ?? ""} // ✅ Shows actuator name
-                      readOnly // Optional: keeps it non-editable
+                      value={formData.actuatorName ?? ""}
+                      readOnly
                     />
                   </div>
                 </div>
