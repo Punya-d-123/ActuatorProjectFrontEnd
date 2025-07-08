@@ -407,11 +407,17 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     setValveCountOption("6 Values");
     setActualSF(["", "", "", "", "", ""]);
     setShowButtons(false);
-    actuatorValues("");
-
-    // 🔹 This clears the Actuator Selected inputs
-    setActuatorDetails({ model: "", size: "", spring: "" });
-    supplyPressureOptions("")
+    setFormData((prev) => ({
+      ...prev,
+      actuatorName: "",
+      pnuematicStart: "",
+      pnuematicMid: "",
+      pnuematicEnd: "",
+      springStart: "",
+      springMid: "",
+      springEnd: "",
+      operatingPressure: "",
+    }));
   };
 
   const rackPinionSeries = [
