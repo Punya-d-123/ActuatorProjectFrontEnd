@@ -240,6 +240,15 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     "10.0",
   ];
 
+  const actuatorValues = [
+    formData.pnuematicStart,
+    formData.pnuematicMid,
+    formData.pnuematicEnd,
+    formData.springStart,
+    formData.springMid,
+    formData.springEnd,
+  ];
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -409,14 +418,12 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     setShowButtons(false);
     setFormData((prev) => ({
       ...prev,
-      actuatorName: "",
-      pnuematicStart: "",
-      pnuematicMid: "",
-      pnuematicEnd: "",
-      springStart: "",
-      springMid: "",
-      springEnd: "",
-      operatingPressure: "",
+      pnuematicStart: null,
+      pnuematicMid: null,
+      pnuematicEnd: null,
+      springStart: null,
+      springMid: null,
+      springEnd: null,
     }));
   };
 
@@ -500,15 +507,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
       setActiveTab("S98 Part#");
     } // Redirect to ActuatorConfiguration.jsx page/route
   };
-
-  const actuatorValues = [
-    formData.pnuematicStart,
-    formData.pnuematicMid,
-    formData.pnuematicEnd,
-    formData.springStart,
-    formData.springMid,
-    formData.springEnd,
-  ];
 
   // Now it's safe to use inside useEffect
   useEffect(() => {
