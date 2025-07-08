@@ -416,15 +416,12 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     setValveCountOption("6 Values");
     setActualSF(["", "", "", "", "", ""]);
     setShowButtons(false);
-    setFormData((prev) => ({
-      ...prev,
-      pnuematicStart: null,
-      pnuematicMid: null,
-      pnuematicEnd: null,
-      springStart: null,
-      springMid: null,
-      springEnd: null,
-    }));
+    formData.pnuematicStart(null);
+    formData.pnuematicMid(null);
+    formData.pnuematicEnd(null);
+    formData.springStart(null);
+    formData.springMid(null);
+    formData.springEnd(null);
   };
 
   const rackPinionSeries = [
