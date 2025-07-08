@@ -223,22 +223,16 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
 
   // Supply Pressure values from image 2
   const supplyPressureOptions = [
-    "2.8",
-    "3.1",
-    "3.4",
-    "3.8",
+    "3.0",
+    "3.5",
     "4.0",
     "4.5",
-    "4.8",
-    "5.2",
+    "5.0",
     "5.5",
-    "5.9",
-    "6.2",
-    "6.6",
-    "6.9",
-    "7.2",
-    "7.6",
-    "7.9",
+    "6.0",
+    "7.0",
+    "8.0",
+    "10.0"
   ];
 
   useEffect(() => {
