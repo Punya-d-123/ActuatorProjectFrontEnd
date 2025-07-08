@@ -407,8 +407,18 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     setTorques(
       valveCountOption === "6 Values" ? ["", "", "", "", "", ""] : ["", "", ""]
     );
-    formData.actuatorType("Spring Return");
-    formData.failSafeValue("Fail Close (Fail Clockwise - FCW)");
+    setFormData((prev) => ({
+      ...prev,
+      actuatorName: "",
+      pnuematicStart: "",
+      pnuematicMid: "",
+      pnuematicEnd: "",
+      springStart: "",
+      springMid: "",
+      springEnd: "",
+      springNumber: "",
+      operatingPressure: "",
+    }));
     setPedOption("Non PED");
 
     if (actuatorSeries.length > 0) {
@@ -425,7 +435,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     setValveCountOption("6 Values");
     setActualSF(["", "", "", "", "", ""]);
     setShowButtons(false);
-    setActuatorValues(["","","","","",""])
   };
 
   const rackPinionSeries = [
