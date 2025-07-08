@@ -147,6 +147,24 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     size: "",
     spring: "",
   });
+  const [actuatorValues, setActuatorValues] = useState([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
+  useEffect(() => {
+    setActuatorValues([
+      formData.pnuematicStart,
+      formData.pnuematicMid,
+      formData.pnuematicEnd,
+      formData.springStart,
+      formData.springMid,
+      formData.springEnd,
+    ]);
+  }, [formData]); // or list each field if formData is not stable
 
   useEffect(() => {
     setFormData((prev) => ({
@@ -238,15 +256,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     "7.0",
     "8.0",
     "10.0",
-  ];
-
-  const actuatorValues = [
-    formData.pnuematicStart,
-    formData.pnuematicMid,
-    formData.pnuematicEnd,
-    formData.springStart,
-    formData.springMid,
-    formData.springEnd,
   ];
 
   useEffect(() => {
@@ -416,12 +425,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     setValveCountOption("6 Values");
     setActualSF(["", "", "", "", "", ""]);
     setShowButtons(false);
-    formData.pnuematicStart(null);
-    formData.pnuematicMid(null);
-    formData.pnuematicEnd(null);
-    formData.springStart(null);
-    formData.springMid(null);
-    formData.springEnd(null);
+    setActuatorValues(["","","","","",""])
   };
 
   const rackPinionSeries = [
