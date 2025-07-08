@@ -191,7 +191,8 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     }
 
     const endToCloseValue = parseFloat(formData.endToClose) || 0;
-    const adjustedEndToClose = Math.ceil(formData.endCloseValue * 1.25);
+    const adjustedEndToClose = Math.ceil(parseFloat(formData.endCloseValue) * parseFloat(safetyFactor));
+
 
     const requestData = {
       actuatorType: formData.actuatorType.includes("Spring Return")
@@ -584,7 +585,6 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                         type="text"
                         className="border rounded px-2 py-1 w-14 bg-yellow-100 text-center font-semibold"
                         value={safetyFactor}
-                        readOnly
                         onChange={handleSafetyFactorChange}
                       />
                     </div>
