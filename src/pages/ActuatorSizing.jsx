@@ -142,6 +142,11 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     springEnd: "",
     springNumber: "",
   });
+  const [actuatorDetails, setActuatorDetails] = useState({
+    model: "",
+    size: "",
+    spring: "",
+  });
 
   useEffect(() => {
     setFormData((prev) => ({
@@ -232,7 +237,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     "6.0",
     "7.0",
     "8.0",
-    "10.0"
+    "10.0",
   ];
 
   useEffect(() => {
@@ -387,6 +392,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     formData.actuatorType("Spring Return");
     formData.failSafeValue("Fail Close (Fail Clockwise - FCW)");
     setPedOption("Non PED");
+
     if (actuatorSeries.length > 0) {
       const s98Series = actuatorSeries.find((s) => s.includes("S98"));
       if (s98Series) setSelectedSeries(s98Series);
@@ -394,12 +400,18 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
     } else {
       setSelectedSeries("");
     }
+
     setStemUnit("Metric");
     setStemDiameter("");
     setSafetyFactor("1.25");
     setValveCountOption("6 Values");
     setActualSF(["", "", "", "", "", ""]);
     setShowButtons(false);
+    actuatorValues("");
+
+    // 🔹 This clears the Actuator Selected inputs
+    setActuatorDetails({ model: "", size: "", spring: "" });
+    supplyPressureOptions("")
   };
 
   const rackPinionSeries = [
@@ -783,15 +795,25 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                     </label>
                     <div className="space-y-2 text-black">
                       {["Actuator Model", "Actuator Size", "No. of Spring"].map(
-                        (label, i) => (
-                          <div key={i} className="flex items-center gap-2">
-                            <label className="w-[120px]">{label}</label>
-                            <input
-                              type="text"
-                              className="w-[120px] bg-[#d9d9d9] px-2 py-1 rounded"
-                            />
-                          </div>
-                        )
+                        (label, i) => {
+                          const keys = ["model", "size", "spring"]; // map index to key
+                          return (
+                            <div key={i} className="flex items-center gap-2">
+                              <label className="w-[120px]">{label}</label>
+                              <input
+                                type="text"
+                                className="w-[120px] bg-[#d9d9d9] px-2 py-1 rounded"
+                                value={actuatorDetails[keys[i]]}
+                                onChange={(e) =>
+                                  setActuatorDetails({
+                                    ...actuatorDetails,
+                                    [keys[i]]: e.target.value,
+                                  })
+                                }
+                              />
+                            </div>
+                          );
+                        }
                       )}
                     </div>
                   </div>
@@ -909,10 +931,7 @@ export default function ActuatorSizing({ setActiveTab, dashboardData }) {
                       >
                         <option value="">SELECT</option>
                         {supplyPressureOptions.map((pressure, idx) => (
-                          <option
-                            key={idx}
-                            value={pressure}
-                          >
+                          <option key={idx} value={pressure}>
                             {pressure}
                           </option>
                         ))}
